@@ -1,0 +1,2 @@
+input:focus { border: 1px dotted black; }
+input.error { border: 1px dotted red; }

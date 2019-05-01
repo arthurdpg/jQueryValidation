@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>jQueryValidation Example</title>
+        <link rel="stylesheet" href="site.css">
+        <script src="jquery-3.4.0.js"></script>
+        <script src="jquery.validate.js"></script>
+        <script>
+            $().ready(function() {
+                $("#frmData").validate();
+                
+                $("#frmData").find(".required").each(function()
+                {
+                    $(this).rules("add", {
+                        required: true,
+                        messages: {
+                            required: "",
+                        }
+                    });
+                });
+
+                $("#frmData").validate();
+
+                // $("#frmData").validate({
+                //     rules: {
+                //         txtFirstName: "required",
+                //         txtLastName: "required"
+                //     },
+                //     messages: {
+                //         txtFirstName: "",
+                //         txtLastName: ""
+                //     }
+                // });
+            });
+        </script>
+    </head>
+    <body>
+        <form id="frmData">
+            <p>
+                <label for="txtFirstName">First name:</label>
+                <input type="text" id="txtFirstName" name="txtFirstName" class="required" required/>
+            </p>
+
+            <p>
+                <label for="txtLastName">Last name:</label>
+                <input type="text" id="txtLastName" name="txtLastName" class="required" required/>
+            </p>
+
+            <input type="submit" id="btnSend" value="Send" />
+        </form>
+    </body>
+</html>
